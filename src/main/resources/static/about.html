@@ -1,5 +1,322 @@
 <!DOCTYPE html>
-<html>
-<head><title>About Us</title></head>
-<body><h1>About Us Page</h1></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Wonders | About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #fdbb2d;
+        }
+        .about-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .about-header h2 {
+            font-size: 2.5rem;
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        .about-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .mission, .vision {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .mission h3, .vision h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .team-section {
+            margin: 4rem 0;
+            text-align: center;
+        }
+        .team-section h2 {
+            font-size: 2.5rem;
+            color: #1a2a6c;
+            margin-bottom: 2rem;
+        }
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .team-member {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        .team-member-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+            border: 5px solid #fdbb2d;
+        }
+        .team-member h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.5rem;
+        }
+        .team-member p.position {
+            color: #b21f1f;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .history-section {
+            background-color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .history-section h2 {
+            font-size: 2.5rem;
+            color: #1a2a6c;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #1a2a6c;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 1.5rem;
+            position: relative;
+            width: 50%;
+            left: 0;
+            margin-bottom: 2rem;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        .timeline-item-content {
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-item-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 25px;
+            height: 25px;
+            background-color: #fdbb2d;
+            border-radius: 50%;
+            right: -42px;
+            border: 4px solid #1a2a6c;
+        }
+        .timeline-item:nth-child(even) .timeline-item-content::after {
+            left: -42px;
+            right: auto;
+        }
+        .year {
+            font-weight: bold;
+            color: #b21f1f;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .social-links {
+            margin: 1rem 0;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 0.5rem;
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #fdbb2d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>World Wonders</h1>
+        <p>Discover the most beautiful monuments around the globe</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="blog1.html">Taj Mahal</a></li>
+            <li><a href="contact_us.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="about-section">
+            <div class="about-header">
+                <h2>About World Wonders</h2>
+                <p>We are passionate explorers dedicated to showcasing the world's most extraordinary monuments and sharing their stories with enthusiasts around the globe.</p>
+            </div>
+
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To inspire global appreciation for architectural wonders by providing comprehensive, accurate, and engaging information about magnificent monuments worldwide. We strive to promote cultural understanding and preservation of these invaluable treasures.</p>
+                </div>
+                
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>To become the premier resource for monument enthusiasts, historians, and travelers seeking authentic insights into the world's most significant architectural achievements, fostering a global community that celebrates and protects our shared heritage.</p>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <h2>Meet Our Team</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member" class="team-member-img">
+                        <h3>Alexandra Richards</h3>
+                        <p class="position">Founder & Architectural Historian</p>
+                        <p>With over 15 years of experience studying historical monuments, Alexandra founded World Wonders to share her passion with the world.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member" class="team-member-img">
+                        <h3>Michael Chen</h3>
+                        <p class="position">Cultural Research Director</p>
+                        <p>Michael specializes in the cultural significance and symbolism behind architectural marvels across different civilizations.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member" class="team-member-img">
+                        <h3>Sophia Patel</h3>
+                        <p class="position">Travel Consultant</p>
+                        <p>Having visited over 75 countries, Sophia provides practical insights and tips for travelers planning visits to world monuments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h2>Our Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-item-content">
+                            <p class="year">2018</p>
+                            <p>World Wonders was founded as a small blog sharing personal travel experiences to famous monuments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-item-content">
+                            <p class="year">2020</p>
+                            <p>Expanded into a full-fledged platform with contributions from historians and architecture experts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-item-content">
+                            <p class="year">2022</p>
+                            <p>Launched our monument preservation initiative, partnering with heritage conservation organizations worldwide.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-item-content">
+                            <p class="year">2024</p>
+                            <p>Reached over 1 million monthly visitors and established our position as a leading resource for monument enthusiasts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Follow us on social media</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Twitter">TW</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="YouTube">YT</a>
+        </div>
+        <p>&copy; 2025 World Wonders. All rights reserved.</p>
+    </footer>
+</body>
 </html>
