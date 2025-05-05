@@ -20,12 +20,12 @@ public class DemoApplication {
 
     @GetMapping("/about")
     public String about() {
-        return "about.html";
+        return "about_us.html";
     }
 
     @GetMapping("/contact")
     public String contact() {
-        return "contact.html";
+        return "contact_us.html";
     }
 
     @GetMapping("/blog1")
